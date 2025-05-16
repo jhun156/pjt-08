@@ -6,7 +6,7 @@
       </RouterLink>
       <div>
         <RouterLink>영화조회</RouterLink> |
-        <RouterLink>리뷰검색</RouterLink> |
+        <RouterLink :to="{ name: 'ReviewSearch' }">리뷰검색</RouterLink> |
         <RouterLink>영화추천</RouterLink>
       </div>
     </nav>
