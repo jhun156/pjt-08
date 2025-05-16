@@ -6,6 +6,7 @@
         <button class="close-btn" @click="close" aria-label="Close">X</button>
       </div>
       <iframe
+        v-if="store.youtubeitem.length > 0 && store.youtubeitem[0].id?.videoId"
         :src="`https://www.youtube.com/embed/${encodeURIComponent(store.youtubeitem[0].id.videoId)}?autoplay=1`"
         frameborder="0"
         allow="autoplay; encrypted-media"
@@ -16,23 +17,32 @@
 </template>
 
 <script setup>
-import { defineProps, defineEmits, ref, onMounted } from 'vue'
-import { useYoutubeStore } from '@/stores/youtube.js'
-const store = useYoutubeStore()
+  import { defineProps, defineEmits, ref, onMounted } from 'vue'
+  import { useYoutubeStore } from '@/stores/youtube.js'
+  const store = useYoutubeStore()
 
-const props = defineProps({
-  movie:Object
-})
+  const props = defineProps({
+    movie:Object
+  })
 
-onMounted(()=>
-  store.searchTrailerrYoutube(1,movie.title)
-)
+  import { watch } from 'vue'
 
-const emit = defineEmits(['close'])
+  watch(
+    () => props.movie,
+    (newMovie) => {
+      if (newMovie && newMovie.title) {
+        store.searchTrailerrYoutube(1, newMovie.title)
+      }
+    },
+    { immediate: true }
+  )
 
-function close() {
-  emit('close')
-}
+
+  const emit = defineEmits(['close'])
+
+  function close() {
+    emit('close')
+  }
 </script>
 
 <style scoped>

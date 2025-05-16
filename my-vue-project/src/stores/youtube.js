@@ -33,6 +33,7 @@ export const useYoutubeStore = defineStore('youtube', () => {
   }
 
   const searchTrailerrYoutube = (num, query) => {
+
     const API_KEY = import.meta.env.VITE_YOUTUBE_API_KEY
 
     axios.get('https://www.googleapis.com/youtube/v3/search', {
@@ -46,6 +47,7 @@ export const useYoutubeStore = defineStore('youtube', () => {
     })
       .then((response) => {
         addTraileryoutube(response.data.items)
+        console.log(youtubeitem.value)
       })
       .catch((error) => {
         console.error('YouTube API 요청 실패:', error)
