@@ -26,7 +26,7 @@ export const useTMDBStore = defineStore('tmdb', () => {
   const fetchDetailMovie = async (id) => {
     try {
       // 예: /movie/{movie_id}/credits  (credit API임으로 경로 맞춰야함)
-      const response = await axios.get(`${DETAIL_API_URL}/${id}`, {
+      const response = await axios.get(`${DETAIL_API_URL}/${id}?language=ko=KR`, {
         headers: {
           accept: 'application/json',
           Authorization: `Bearer ${API_ACCESS_KEY}`

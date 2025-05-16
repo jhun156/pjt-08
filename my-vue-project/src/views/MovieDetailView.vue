@@ -1,7 +1,6 @@
 <template>
   <div>
-    <h1>dfdfdf</h1>
-    <img :src="'https://image.tmdb.org/t/p/w500' + movie.poster_path" alt="영화 디테일 이미지">
+    <MovieDetailInfo :movie="movie"/>
   </div>
 </template>
 
@@ -9,6 +8,7 @@
   import { useTMDBStore } from '@/stores/tmdb.js'
   import { useRoute } from 'vue-router'
   import { ref, onMounted } from 'vue'
+  import MovieDetailInfo from '@/components/MovieDetailInfo.vue'
 
   const route = useRoute()
   const store = useTMDBStore()

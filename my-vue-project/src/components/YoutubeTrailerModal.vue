@@ -2,11 +2,11 @@
   <div class="modal-backdrop" @click.self="close">
     <div class="modal-content" role="dialog" aria-modal="true">
       <div class="modal-header">
-        <h3 class="video-title">{{ videotitle }}</h3>
+        <h3 class="video-title">{{ movie.title }}</h3>
         <button class="close-btn" @click="close" aria-label="Close">X</button>
       </div>
       <iframe
-        :src="`https://www.youtube.com/embed/${encodeURIComponent(videoId)}?autoplay=1`"
+        :src="`https://www.youtube.com/embed/${encodeURIComponent(store.youtubeitem[0].id.videoId)}?autoplay=1`"
         frameborder="0"
         allow="autoplay; encrypted-media"
         allowfullscreen
@@ -16,12 +16,17 @@
 </template>
 
 <script setup>
-import { defineProps, defineEmits } from 'vue'
+import { defineProps, defineEmits, ref, onMounted } from 'vue'
+import { useYoutubeStore } from '@/stores/youtube.js'
+const store = useYoutubeStore()
 
 const props = defineProps({
-  videoId: String,
-  videotitle: String
+  movie:Object
 })
+
+onMounted(()=>
+  store.searchTrailerrYoutube(1,movie.title)
+)
 
 const emit = defineEmits(['close'])
 
