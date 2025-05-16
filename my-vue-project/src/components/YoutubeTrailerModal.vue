@@ -31,7 +31,7 @@
     () => props.movie,
     (newMovie) => {
       if (newMovie && newMovie.title) {
-        store.searchTrailerrYoutube(1, newMovie.title)
+        store.searchTrailerYoutube(1, newMovie.title)
       }
     },
     { immediate: true }

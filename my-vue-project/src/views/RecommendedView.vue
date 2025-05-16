@@ -112,17 +112,116 @@ onMounted(() => {
 </script>
 
 <style scoped>
+/* 전체 배경 */
+div {
+  background-color: #f4f4f4; /* 밝은 회색 배경 */
+  padding: 20px;
+  font-family: 'Noto Sans KR', sans-serif; /* 예시 폰트 */
+}
+
+h2 {
+  color: #333;
+  text-align: center;
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+p {
+  color: #555;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
 .movie-item {
   display: flex;
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
+  background-color: #fff;
+  padding: 15px; /* 패딩 증가 */
+  border-radius: 10px; /* 좀 더 둥근 모서리 */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* 그림자 강조 */
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.movie-item:hover {
+  transform: translateY(-5px); /* 호버 시 더 많이 떠오르는 효과 */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* 호버 시 그림자 더 강조 */
+  cursor: pointer; /* 마우스 커서 변경 */
 }
 
 .movie-item img {
-  margin-right: 10px;
+  width: 150px; /* 이미지 크기 약간 확대 */
+  height: auto;
+  margin-right: 20px;
+  border-radius: 8px;
+  object-fit: cover; /* 이미지가 비율에 맞춰 잘리지 않도록 */
 }
 
 .movie-item p {
   margin: 0;
+  font-size: 1.1rem; /* 글자 크기 약간 확대 */
+  font-weight: 500; /* 중간 정도 굵기로 변경 */
+  color: #333;
+}
+
+.movie-item p {
+  margin: 0;
+  cursor: pointer;
+  font-weight: bold;
+  color: #333;
+}
+
+/* 모달 스타일 (RecommendeModal.vue에 적용) */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* 반투명 검정 배경 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.modal-close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: #777;
+}
+
+.modal-close-button:hover {
+  color: #333;
+}
+
+.modal-video-container {
+  width: 80vw; /* 적절한 너비 조정 */
+  max-width: 600px;
+  aspect-ratio: 16 / 9; /* 유튜브 영상 비율 */
+}
+
+.modal-video-container iframe {
+  width: 100%;
+  height: 100%;
+}
+
+.modal-title {
+  margin-top: 15px;
+  text-align: center;
+  color: #333;
 }
 </style>

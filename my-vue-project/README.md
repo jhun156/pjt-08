@@ -1,29 +1,61 @@
-# my-vue-project
+# 🎬 Movie Explorer - 영화 정보 & 추천 웹
 
-This template should help get you started developing with Vue 3 in Vite.
+## 📌 프로젝트 소개
+**Movie Explorer**는 TMDB(The Movie Database) API를 활용하여 최신 영화 정보를 조회하고, 상세 페이지에서 영화 정보를 확인하며, 리뷰를 검색하고, 맞춤형 영화 추천까지 받을 수 있는 Vue 기반의 웹 애플리케이션입니다.
+직관적이고 깔끔한 UI로 영화 팬들에게 쉽고 빠른 영화 탐색 경험을 제공합니다!
 
-## Recommended IDE Setup
+---
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## 🔧 주요 기능
+- 🎥 **영화 목록 조회**: 인기 영화 리스트를 카드 형태로 출력  
+- 🧾 **영화 상세 페이지**: 개봉일, 러닝타임, 평점, 장르, 줄거리 등 영화 상세 정보 제공  
+- ▶️ **공식 예고편 시청**: 유튜브 트레일러 모달 팝업으로 간편 시청  
+- 🔍 **리뷰 검색 기능**: 영화 제목 및 키워드 기반 리뷰 탐색  
+- ⭐ **영화 추천**: 유사한 영화 추천 기능 제공
 
-## Customize configuration
+---
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+## 🛠️ 기술 스택
+- **프론트엔드**: Vue 3, Vue Router, Composition API  
+- **스타일링**: Bootstrap 5, SCSS, 커스텀 CSS  
+- **API 연동**: TMDB API  
+- **상태 관리**: (필요 시) Pinia 또는 Composition API 기반 상태 관리
 
-## Project Setup
+---
 
-```sh
-npm install
+## 🗂️ 프로젝트 구조
+
+```
+src/
+├── assets/            # 이미지, 아이콘 등 정적 리소스
+├── components/        # 재사용 가능한 Vue 컴포넌트
+├── views/             # 주요 페이지 뷰
+├── router/            # Vue Router 설정
+├── App.vue            # 최상위 컴포넌트
+└── main.js            # 앱 진입점
 ```
 
-### Compile and Hot-Reload for Development
+---
 
-```sh
-npm run dev
+## 📄 환경 변수 설정
+
+TMDB API를 사용하기 위해 `.env` 파일에 아래와 같이 설정합니다:
+
+```
+VITE_TMDB_API_KEY=여기에_당신의_API_KEY_입력
 ```
 
-### Compile and Minify for Production
+---
 
-```sh
-npm run build
-```
+## 📱 반응형
+모바일, 태블릿, 데스크탑 등 다양한 해상도 지원!  
+Bootstrap의 그리드 시스템과 미디어 쿼리를 활용한 반응형 디자인 적용!
+
+---
+
+## 👥 팀원 정보
+
+| 이름     | 역할 및 담당 |
+|----------|---------------|
+| **박지훈** | 🎬 TMDB 연동 및 데이터 처리<br>📄 영화 목록, 상세 페이지 구성<br>📦 영화 장르, 평점, 러닝타임 등 메타데이터 처리 |
+| **권민환** | 📺 YouTube API 연동 및 예고편 모달 구현<br>🧩 예고편 자동 재생 기능<br>🖼️ 트레일러 버튼 UI 및 사용자 상호작용 구현 |

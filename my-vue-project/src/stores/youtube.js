@@ -32,7 +32,7 @@ export const useYoutubeStore = defineStore('youtube', () => {
       })
   }
 
-  const searchTrailerrYoutube = (num, query) => {
+  const searchTrailerYoutube = (num, query) => {
 
     const API_KEY = import.meta.env.VITE_YOUTUBE_API_KEY
 
@@ -54,5 +54,5 @@ export const useYoutubeStore = defineStore('youtube', () => {
       })
   }
 
-  return { youtubeList, youtubeitem, addyoutube, searchYoutube, searchTrailerrYoutube, }
+  return { youtubeList, youtubeitem, addyoutube, searchYoutube, searchTrailerYoutube, }
 })

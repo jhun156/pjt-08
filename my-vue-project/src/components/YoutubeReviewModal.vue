@@ -1,30 +1,31 @@
 <template>
-  <div class="modal-backdrop" @click.self="close">
+  <div class="modal-backdrop" @click.self="closeModal">
     <div class="modal-content" role="dialog" aria-modal="true">
-      <div class="modal-header">
-        <h3 class="video-title">{{ videotitle }}</h3>
-        <button class="close-btn" @click="close" aria-label="Close">X</button>
-      </div>
       <iframe
-        :src="`https://www.youtube.com/embed/${encodeURIComponent(videoId)}?autoplay=1`"
+        :src="`https://www.youtube.com/embed/${videoId}?autoplay=1`"
         frameborder="0"
         allow="autoplay; encrypted-media"
         allowfullscreen
       ></iframe>
+      <div class="modal-side">
+        <div class="modal-header">
+          <h3 class="video-title">{{ videotitle }}</h3>
+          <button class="close-btn" @click="closeModal" aria-label="Close">X</button>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script setup>
-
 const props = defineProps({
   videoId: String,
-  videotitle: String
+  videotitle: String,
 })
 
 const emit = defineEmits(['close'])
 
-function close() {
+function closeModal() {
   emit('close')
 }
 </script>
