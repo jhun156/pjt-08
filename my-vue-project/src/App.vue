@@ -5,7 +5,7 @@
         <img src="" alt="#">
       </RouterLink>
       <div>
-        <RouterLink :to="{ name: 'movies' }">영화조회</RouterLink> |
+        <RouterLink :to="{ name: 'MovieList' }">영화조회</RouterLink> |
         <RouterLink :to="{ name: 'ReviewSearch' }">리뷰검색</RouterLink> |
         <RouterLink :to="{ name: 'Recommended' }">영화추천</RouterLink>
       </div>
